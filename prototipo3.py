@@ -3,9 +3,9 @@ from tkinter import ttk, messagebox
 import sqlite3
 import os
 
-# =========================
+
 # BANCO DE DADOS
-# =========================
+
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 db_path = os.path.join(BASE_DIR, "sistema_escola.db")
@@ -82,10 +82,10 @@ def criar_tabelas():
         if 'conn' in locals():
             conn.close()
 
-# =========================
+
 # CORES - DARK PREMIUM
-# =========================
-DARK_BG = "#0B1120"         # Fundo principal (mais profundo)
+
+DARK_BG = "#0B1120"         # Fundo principal 
 DARK_CARD = "#151E2E"       # Cards elegantes
 DARK_INPUT = "#1E293B"      # Inputs refinados
 DARK_BLUE = "#00B4D8"       # Azul cyan moderno
@@ -93,9 +93,9 @@ DARK_BLUE_HOVER = "#0096C7" # Hover elegante
 DARK_TEXT = "#E2E8F0"       # Branco suave
 DARK_BORDER = "#334155"     # Borda discreta
 
-# =========================
+
 # FUNÇÕES AUXILIARES
-# =========================
+
 
 def limpar_campos(entries):
     for entry in entries:
@@ -116,9 +116,9 @@ def selecionar_item(tree, entries):
                 entry.insert(0, valores[i])
     except:
         pass
-# =========================
+
 # CRUD ALUNOS (CORRIGIDO)
-# =========================
+
 
 def cadastrar_aluno(entries, tree):
     nome = entries[0].get().strip()   # ← Alterado para índice 0
@@ -151,9 +151,8 @@ def cadastrar_aluno(entries, tree):
         if 'conn' in locals():
             conn.close()
 
-# =========================
+
 # CRUD PROFESSORES
-# =========================
 
 def cadastrar_professor(entries, tree):
     nome = entries[0].get().strip()   # ← CORRIGIDO
@@ -202,9 +201,9 @@ def atualizar_tabela_professores(tree):
             conn.close()
 
 
-# =========================
+
 # FUNÇÕES DA ABA DE NOTAS
-# =========================
+
 
 def carregar_alunos_combo(combo):
     try:
@@ -244,9 +243,9 @@ def salvar_nota(combo, entry_nota, entry_media):
         if 'conn' in locals():
             conn.close()
 
-# =========================
+
 # INTERFACE GRÁFICA (já corrigida)
-# =========================
+
 
 def criar_interface():
     janela = Tk()
@@ -255,9 +254,9 @@ def criar_interface():
     janela.resizable(True, True)       # ← Permite redimensionar
     janela.config(bg=DARK_BG)
 
-    # =========================
+  
     # ESTILO
-    # =========================
+   
     style = ttk.Style()
     style.theme_use("clam")
 
@@ -394,9 +393,9 @@ def criar_interface():
 
     janela.mainloop()
 
-# =========================
+
 # FUNÇÕES FALTANTES (ADICIONE ESTAS)
-# =========================
+
 
 def atualizar_tabela_alunos(tree):
     for item in tree.get_children():
@@ -484,9 +483,8 @@ def excluir_aluno(entries, tree):
     finally:
         if 'conn' in locals():
             conn.close()
-# =========================
-# FUNÇÕES DE PROFESSORES (FALTANDO)
-# =========================
+
+# FUNÇÕES DE PROFESSORES 
 
 def atualizar_professor(entries, tree):
     try:
@@ -556,9 +554,9 @@ def excluir_professor(entries, tree):
     finally:
         if 'conn' in locals():
             conn.close()
-# =========================
+
 # INICIALIZAÇÃO
-# =========================
+
 
 if __name__ == "__main__":
     criar_tabelas()
